@@ -1,0 +1,88 @@
+header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+img {
+    height: 80px;
+    width: 80px;
+}
+
+header nav {
+    margin-right: 20px;
+}
+
+header nav li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Droid Sans";
+}
+
+header nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+    background-color: lightgray;
+}
+
+.main img {
+    width: 200px;
+    height: 200px;
+}
+
+.main .sidebar {
+    padding: 30px 70px;
+    max-width: 500px;
+    background-color: dimgray;
+}
+
+.main .main-page-content {
+    padding: 25px;
+    width: 65%;
+}
+
+.main .main-page-content h1 {
+    color: black;
+}
+
+.main-page-content table {
+    justify-content: center;
+    padding: 25px;
+}
+
+.main-page-content table img {
+    height: 300px;
+    width: 400px;
+    padding: 25px;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    padding: 20px;
+}
+
+footer a {
+    margin: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Droid Sans"
+}
+
+footer p {
+    color: white;
+}
+
+footer img {
+    height: 40px;
+    width: 40px;
+}

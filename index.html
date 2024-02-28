@@ -3,34 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="resources/styles.css">
 </head>
 <body>
 
 <header>
-    <p><a href="index.html">
-    <img src="images/n.png" alt="Nick's Logo" >
+    <a href="index.html">
+        <img src="resources/n.png" alt="Nick's Logo" class="logo">
+    </a>
     <nav>
         <ul>
             <li><a href="resume.html">RESUME</a></li>
-            <li><a href="mymajor.html">MY MAJOR</a></li>
-            <li><a href="clubs.html">ORGANIZATIONS</a></li>
-            <li><a href="album.html">ALBUM</a></li>
+            <li><a href="education.html">EDUCATION</a></li>
+            <li><a href="workexperience.html">WORK EXPERIENCE</a></li>
+            <li><a href="gallery.html">PHOTO GALLERY</a></li>
             <li><a href="weblinks.html">WEBLINKS</a></li>
-            <li><a href="apijson.html">API/JSON DATA</a></li>
         </ul>
     </nav>
 </header>
     <div class="main">
         <div class="sidebar">
-            This is my home page
+            <h1>
+                Contact Me
+            </h1>
+            <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mpzvrrzo" method="post">
+                <fieldset id="fs-frm-inputs">
+                    <label for="full-name">Full Name</label>
+                    <br>
+                    <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
+                    <br>
+                    <label for="email-address">Email Address</label>
+                    <br>
+                    <input type="email" name="_replyto" id="email-address" placeholder="sample@domain.com" required="">
+                    <br>
+                    <label for="message">Message</label>
+                    <br>
+                    <textarea rows="5" name="message" id="message" placeholder="Type here" required=""></textarea>
+                    <br>
+                    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                    <br>
+                </fieldset>
+                <input type="submit" value="Submit">
+            </form>
+
+            <hr>
+
+            <div><iframe src="https://calendar.google.com/calendar/embed?src=nickg9%40icloud.com&ctz=America%2FNew_York"
+                         style="border: 0" width="500" height="450" frameborder="0" scrolling="no"></iframe>
+            </div>
+
+            <hr>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    fetch('https://www.espn.com/espn/rss/nba/news')
+                        .then(response => response.text())
+                        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                        .then(data => {
+                            const items = data.querySelectorAll("item");
+                            const rssFeedContainer = document.getElementById("rss-feed");
+                            let counter = 0;
+                            items.forEach(item => {
+                                if (counter < 3) {
+                                    const title = item.querySelector("title").textContent;
+                                    const link = item.querySelector("link").textContent;
+                                    const description = item.querySelector("description").textContent;
+                                    const rssItem = `
+                                <div class="rss-item">
+                                    <h3><a href="${link}" target="_blank">${title}</a></h3>
+                                    <p>${description}</p>
+                                </div>
+                            `;
+                                    rssFeedContainer.innerHTML += rssItem;
+                                    counter++;
+                                }
+                            });
+                        })
+                        .catch(error => console.log('Error fetching RSS feed:', error));
+                });
+            </script>
+
+            <div id="rss-feed"></div>
+
+
+        </div>
+        <div class="main-page-content">
+            <h1>Hello! My name is Nicholas Gerhards</h1>
+            <img src="resources/prof.jpg" alt="headshot" class="headshot">
+            <h5>I'm currently a sophomore pursuing a degree in Cybersecurity Analytics and Operations at Penn State University.
+                My combination of technical and soft skills allow me to solve complex problems efficiently while effectively
+                communicating and collaborating with others.
+            </h5>
+            <br>
+            <p>Some of my interests and hobbies include:</p>
+            <ul>
+                <li>Sports: Soccer, Football, Basketball, Golf</li>
+                <li>Graphics Design</li>
+                <li>Video Games</li>
+                <li>Sci-Fi Movies and TV Shows</li>
+                <li>Skiing</li>
+                <li>Late night drives</li>
+                <li>Traveling</li>
+            </ul>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-text">
-            Footer
-        </div>
-    </footer>
+<footer>
+    <a href="https://linkedin.com/nicholasgerhards">
+        <img src="resources/linkedin.png" alt="linkedin">
+    </a>
+    <a href="https://github.com/nickgerhards">
+        <img src="resources/github.png" alt="github">
+    </a>
+    <br>
+    <p>&copy; Copyright Nicholas Gerhards</p>
+</footer>
 </body>
 </html>
